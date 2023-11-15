@@ -8,9 +8,8 @@
 <%
 
     String email= (String)session.getAttribute("email");
-
-    if(email!=null){
-        response.sendRedirect("/login_war_exploded/profile.jsp");
+    if(!"admin@gmail.com".equals(email) || email=="null"){
+        response.sendRedirect("/login_war_exploded/admin.jsp");
     }
 
 %>
