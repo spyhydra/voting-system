@@ -13,7 +13,7 @@
     <label for="competition">Choose a competition:</label>
     <select id="competition" name="competition">
         <option value="dance">Dance</option>
-        <option value="ramwalk">Ramwalk</option>
+        <option value="ramewalk">Ramwalk</option>
         <option value="presentation">Presentation</option>
     </select>
     <input type="submit" value="Add">

@@ -6,16 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-
-    String email= (String)session.getAttribute("email");
-    if(!"admin@gmail.com".equals(email) || email=="null"){
-        response.sendRedirect("/login_war_exploded/admin.jsp");
-    }
-
-%>
 <!DOCTYPE html>
-
+<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
