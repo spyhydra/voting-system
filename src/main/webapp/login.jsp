@@ -55,7 +55,7 @@
 
                 <div class="container-login100-form-btn">
                     <input type="submit" class="login100-form-btn">
-                        Login
+                    Login
                     </input>
                 </div>
 
@@ -70,8 +70,8 @@
                 </div>
 
                 <div class="text-center p-t-136">
-                    <a class="txt2" href="/login_war_exploded">
-                        Create your Account
+                    <a class="txt2" href="/login_war_exploded/admin.jsp">
+                        Admin login
                         <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                     </a>
                 </div>

@@ -11,14 +11,15 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import com.jdbc.conn.Dbconnection;
-
-@WebServlet(name = "Login", value = "/login" )
-public class Login extends HttpServlet {
+//
+@WebServlet(name = "user",value = "/login" )
+//@WebServlet(name = "Login", value = "/admin" )
+public class UserLogin extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
+        System.out.println("enter in login page");
         if (isValidUser(email, password)) {
             // Create a session and store the email attribute
             HttpSession session = request.getSession();
@@ -36,6 +37,7 @@ public class Login extends HttpServlet {
         try {
             Connection conn = Dbconnection.getConnection();
             System.out.println("database connected login");
+//            String query = "SELECT u.*, p.* FROM user u JOIN participator p ON u.email = p.user_email WHERE u.email=? AND u.password=?";
             String query = "SELECT * FROM user WHERE email=? AND password=?";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1, email);

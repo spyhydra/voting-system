@@ -26,7 +26,7 @@
       <input type="text" placeholder="email" name="email"/>
       <input type="password" placeholder="password" name="password"/>
       <input type="submit" placeholder="submit">
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+      <p class="message">Login user? <a href="/login_war_exploded/login.jsp">Create an account</a></p>
     </form>
   </div>
 </div>

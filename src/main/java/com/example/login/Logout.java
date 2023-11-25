@@ -17,10 +17,9 @@ public class Logout extends HttpServlet {
         System.out.println("enter in logout");
         HttpSession session= req.getSession();
         session.invalidate();
-        // use request dispater for the transfer user to login page
+        // use request dispacher for the transfer user to login page
         RequestDispatcher rd= req.getRequestDispatcher("/index.jsp");
         rd.forward(req,res);
-
 
 
     }
