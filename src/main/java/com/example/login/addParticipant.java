@@ -27,7 +27,6 @@ public class addParticipant extends HttpServlet {
             ps.setString(1, name);
             ps.setString(2, compi);
 
-
             int count = ps.executeUpdate();
 
             if (count > 0) {

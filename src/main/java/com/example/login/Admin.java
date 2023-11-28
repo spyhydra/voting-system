@@ -34,7 +34,7 @@ public class Admin extends HttpServlet {
             // Redirect to a failure
 
             response.setContentType("text/html");
-            out.println("<h3 style='color:red'> invlid name and passowrd </h3>");
+            out.println("<h3 style='color:red'> invalid name and password </h3>");
 
             RequestDispatcher rd = request.getRequestDispatcher("/admin.jsp");
             rd.include(request, response);

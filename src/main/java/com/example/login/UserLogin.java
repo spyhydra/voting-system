@@ -19,12 +19,9 @@ public class UserLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        System.out.println("enter in login page");
-        if (isValidUser(email, password)) {
-            // Create a session and store the email attribute
-            HttpSession session = request.getSession();
-            session.setAttribute("email", email);
 
+        System.out.println("enter in login page");
+        if (isValidUser(email, password, request)) {
             // Redirect to a success page
             response.sendRedirect("profile.jsp");
         } else {
@@ -33,17 +30,30 @@ public class UserLogin extends HttpServlet {
         }
     }
 
-    private boolean isValidUser(String email, String password) {
+    private boolean isValidUser(String email, String password, HttpServletRequest request) {
         try {
             Connection conn = Dbconnection.getConnection();
             System.out.println("database connected login");
-//            String query = "SELECT u.*, p.* FROM user u JOIN participator p ON u.email = p.user_email WHERE u.email=? AND u.password=?";
-            String query = "SELECT * FROM user WHERE email=? AND password=?";
+
+            String query = "SELECT user_id FROM user WHERE email=? AND password=?";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.next(); // If a row is returned, the user is valid
+
+            if (resultSet.next()) {
+                // If a row is returned, the user is valid
+                int userId = resultSet.getInt("user_id");
+
+                // Create a session and store the email and user_id attributes
+                HttpSession session = request.getSession();
+                session.setAttribute("email", email);
+                session.setAttribute("user_id", userId);
+
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return false;
