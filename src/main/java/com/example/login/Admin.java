@@ -29,7 +29,7 @@ public class Admin extends HttpServlet {
             session.setAttribute("email", email);
 
             // Redirect to a success page
-            response.sendRedirect("profile.jsp");
+            response.sendRedirect("/login_war_exploded");
         } else {
             // Redirect to a failure
 
