@@ -33,7 +33,7 @@ public class addParticipant extends HttpServlet {
                 res.setContentType("text/html");
                 out.println("<h3 style='color:green'> participator  successfully add</h3>");
 
-                RequestDispatcher rd = req.getRequestDispatcher("/login.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("/displayParticipants.jsp");
                 rd.include(req, res);
 
             } else {

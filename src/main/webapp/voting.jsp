@@ -27,7 +27,10 @@
                     <div id="menu" class="col-lg-6 d-none d-lg-block">
                         <ul class="float-end mul d-inline-block">
                             <li class="float-md-start px-4 pe-1 pt-4">
-                                <a href="result.html" class="fw-bold fs-8 text-primary"> View Result</a>
+                                <a href="displayParticipants.jsp" class="fw-bold fs-8 text-primary"> display candidate </a>
+                            </li>
+                            <li class="float-md-start px-4 pe-1 pt-4">
+                                <a href="candidate.jsp" class="fw-bold fs-8 text-primary"> add candidate </a>
                             </li>
                             <li class="float-md-start px-4 pe-1 py-3">
                                 <button class="btn fw-bold fs-8 btn-outline-primary px-5">Login</button>

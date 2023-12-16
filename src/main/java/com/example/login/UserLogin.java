@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
@@ -23,7 +22,7 @@ public class UserLogin extends HttpServlet {
         System.out.println("enter in login page");
         if (isValidUser(email, password, request)) {
             // Redirect to a success page
-            response.sendRedirect("profile.jsp");
+            response.sendRedirect("voting.jsp");
         } else {
             // Redirect to a failure page
             response.sendRedirect("about.jsp");
