@@ -1,3 +1,7 @@
+<%@ page import="com.jdbc.conn.Dbconnection" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
 <!doctype html>
 <html lang="en">
 
@@ -51,16 +55,44 @@
             <p></p>
         </div>
         <div class="row">
+            <%
+                try{
+                    Connection con = Dbconnection.getConnection();
+                    System.out.println("connected");
+
+                    Statement st= con.createStatement();
+                    ResultSet rs= st.executeQuery("select * from participants");
+                    //PrintWriter pw = response.getWriter();
+
+                    while(rs.next()){
+            %>
+             <form action="Voting" method="post">
             <div class="col-lg-4 col-md-6">
                 <div class="text-white text-center mb-4 votcard shadow-md bg-white p-4 pt-5">
                     <img class="rounded-pill shadow-md p-2" src="assets/images/testimonial/member-01.jpg" alt="">
-                    <h4 class="mt-3 fs-5 mb-1 fw-bold">Chetan patil</h4>
-                    <h6 class="fs-7">Runnung to Be: <span class="text-primary fw-bold">President</span></h6>
+                    <h4 class="mt-3 fs-5 mb-1 fw-bold"><% out.println(rs.getString("Name")); %></h4>
+                    <h6 class="fs-7"> Participated in: <span class="text-primary fw-bold"><% out.println(rs.getString("CompetitionName")); %></span></h6>
                     <p class="text-dark mt-3 mb-3 fs-8"></p>
 
-                    <button class="btn btn-danger fw-bolder px-4 ms-2 fs-8">Vote</button>
+                    <input type="hidden" name="id" value="<%= rs.getString("ID") %>">
+                    <button class="btn btn-danger fw-bolder px-4 ms-2 fs-8" name="arbitraryName" type="submit">Vote</button>
+
+
                 </div>
             </div>
+             </form>
+            <%     }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            %>
+
+
+
+
+
+
 
         </div>
     </div>
